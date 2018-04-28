@@ -15,12 +15,19 @@ public class BoatRocking : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        float cyclePoint = Mathf.Sin(Time.fixedTime * 2 * Mathf.PI / cycleTime);
+	void FixedUpdate () {
+        float cyclePoint = Mathf.Sin(Time.fixedTime * 2 * Mathf.PI / cycleTime) * 1.2F;
+
+        if(cyclePoint > 1)
+        {
+            cyclePoint = 1;
+        }
+        else if(cyclePoint < -1)
+        {
+            cyclePoint = -1;
+        }
 
         float newZ = cyclePoint * maxRock;
-
-        Debug.Log(newZ);
 
         boat.transform.eulerAngles = new Vector3(0, 0, newZ);
 	}
