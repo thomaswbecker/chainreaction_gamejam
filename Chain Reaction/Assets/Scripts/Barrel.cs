@@ -19,11 +19,18 @@ public class Barrel : MonoBehaviour {
     [HideInInspector]
     public bool alive = true;
     public bool hasDetonator = false;
-    void Explode() {
+
+
+    public void Explode() {
         if (!alive)
             return;
         alive = false;
+        StartCoroutine(ExplosionSequence());
+    }
 
+    IEnumerator ExplosionSequence()
+    {
+        yield return new WaitForSeconds(GameSettings.Instance.ChainExplosionDelay);
         var radius = GameSettings.Instance.ExplosionRadius;
         var collisions = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider collision in collisions)
@@ -38,13 +45,24 @@ public class Barrel : MonoBehaviour {
         GameObject.Instantiate(ExplosionPrefab.gameObject, gameObject.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
+
+    IEnumerator MouseClickDelay(float delayTime)
+    {
+        var self = this;
+        yield return new WaitForSeconds(delayTime);
+        if (self)
+        {
+            self.Explode();
+        }
+    }
+
     void OnMouseOver()
     {
         if (!hasDetonator)
             return;
         if (Input.GetMouseButtonDown(0))
         {
-            Explode();
+            StartCoroutine(MouseClickDelay(GameSettings.Instance.BarrelClickDelay));
             // Whatever you want it to do.
         }
     }
