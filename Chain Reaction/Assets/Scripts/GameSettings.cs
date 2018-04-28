@@ -12,8 +12,8 @@ public abstract class SingletonScriptableObject<T> : ScriptableObject where T : 
         {
             if (!_instance)
             {
-                var settings = Resources.FindObjectsOfTypeAll<T>();
-                _instance = settings.FirstOrDefault();
+                var settings = Resources.LoadAll<T>("");
+                _instance = settings[0];
             }
             return _instance;
         }
@@ -23,7 +23,8 @@ public abstract class SingletonScriptableObject<T> : ScriptableObject where T : 
 
 [CreateAssetMenu(fileName = "GameSettings", menuName = "Game Settings File", order = 1)]
 public class GameSettings : ScriptableObject {
-    public static GameSettings Instance {
+    public static GameSettings Instance
+    {
         get { return SingletonScriptableObject<GameSettings>.Instance; }
     }
     public float ExplosionRadius = 1.0f;
