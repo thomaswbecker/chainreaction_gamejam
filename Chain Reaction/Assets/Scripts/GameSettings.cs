@@ -11,7 +11,10 @@ public abstract class SingletonScriptableObject<T> : ScriptableObject where T : 
         get
         {
             if (!_instance)
-                _instance = Resources.FindObjectsOfTypeAll<T>().FirstOrDefault();
+            {
+                var settings = Resources.FindObjectsOfTypeAll<T>();
+                _instance = settings.FirstOrDefault();
+            }
             return _instance;
         }
     }
