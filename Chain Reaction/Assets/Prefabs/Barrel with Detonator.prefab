@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 54303258117094436}
   - component: {fileID: 64560585186268134}
   - component: {fileID: 114064080870589968}
+  - component: {fileID: 114681454708555042}
   m_Layer: 0
   m_Name: Barrel with Detonator
   m_TagString: Untagged
@@ -348,4 +349,16 @@ MonoBehaviour:
   ExplosionPrefab: {fileID: 114899428777681686, guid: de77429ac56271142bd98aeb131a6fe1,
     type: 2}
   alive: 1
-  hasDetonator: 1
+--- !u!114 &114681454708555042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1261086045284914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d2fef34d6dd8b640a348e50658ba054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RadiusIndicatorPrefab: {fileID: 1960640935216324, guid: afe0d5303ca31b745821508d318bb08b,
+    type: 2}

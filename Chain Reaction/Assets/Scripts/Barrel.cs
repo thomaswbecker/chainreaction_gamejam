@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class Barrel : MonoBehaviour
+public class Barrel : MonoBehaviour, IExplodeable 
 {
 
     public BarrelExplosion ExplosionPrefab;
@@ -21,8 +21,6 @@ public class Barrel : MonoBehaviour
     }
     [HideInInspector]
     public bool alive = true;
-    public bool hasDetonator = false;
-
 
     public void Explode()
     {
@@ -39,12 +37,14 @@ public class Barrel : MonoBehaviour
         var collisions = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider collision in collisions)
         {
-            var barrel = collision.gameObject.GetComponent<Barrel>();
-            var destructible = collision.gameObject.GetComponent<Destructible>();
-            if (barrel)
+            var barrel = collision.gameObject.GetComponent<IExplodeable>();
+            if (barrel != null)
                 barrel.Explode();
+            var destructible = collision.gameObject.GetComponent<Destructible>();
+
+            // FIXME:  What are we trying to do with Destructible?
             if (destructible)
-                Destroy(collision);
+                Destroy(destructible); 
 
 
         }
@@ -56,24 +56,4 @@ public class Barrel : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    IEnumerator MouseClickDelay(float delayTime)
-    {
-        var self = this;
-        yield return new WaitForSeconds(delayTime);
-        if (self)
-        {
-            self.Explode();
-        }
-    }
-
-    void OnMouseOver()
-    {
-        if (!hasDetonator)
-            return;
-        if (Input.GetMouseButtonDown(0))
-        {
-            StartCoroutine(MouseClickDelay(GameSettings.Instance.BarrelClickDelay));
-            // Whatever you want it to do.
-        }
-    }
 }

@@ -11,6 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10819149fb6255f4aa2ad4725ecec4d2, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  ExplosionRadius: 5
+  ExplosionRadius: 1
   BarrelClickDelay: 1
-  ChainExplosionDelay: 0.3
+  ChainExplosionDelay: 0.15
+  RadiusIndicatorPrefab: {fileID: 1960640935216324, guid: afe0d5303ca31b745821508d318bb08b,
+    type: 2}
