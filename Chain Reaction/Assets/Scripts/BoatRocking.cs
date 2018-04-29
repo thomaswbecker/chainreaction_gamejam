@@ -16,7 +16,7 @@ public class BoatRocking : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        float cyclePoint = Mathf.Sin(Time.fixedTime * 2 * Mathf.PI / cycleTime) * 1.2F;
+        float cyclePoint = Mathf.Sin(Time.timeSinceLevelLoad * 2 * Mathf.PI / cycleTime) * 1.2F;
 
         if(cyclePoint > 1)
         {

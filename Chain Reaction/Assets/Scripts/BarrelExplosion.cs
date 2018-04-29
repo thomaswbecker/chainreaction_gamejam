@@ -28,7 +28,6 @@ public class BarrelExplosion : MonoBehaviour {
         if (barrelExplosionClips.Length > 0)
         {
             int index = Random.Range(0, barrelExplosionClips.Length);
-            Debug.Log("playing sound number " + index);
             AudioClip chosenExplosion = barrelExplosionClips[index];
             audioSource.PlayOneShot(chosenExplosion);
         }
