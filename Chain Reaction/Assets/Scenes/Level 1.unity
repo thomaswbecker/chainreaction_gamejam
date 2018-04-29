@@ -152,25 +152,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 427610, guid: 1d3b1a1513de66247974634911345b98, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 427610, guid: 1d3b1a1513de66247974634911345b98, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 427610, guid: 1d3b1a1513de66247974634911345b98, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 136321675839235260, guid: 1d3b1a1513de66247974634911345b98,
-        type: 2}
-      propertyPath: m_Center.y
-      value: 1.01
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114012799969097208, guid: 1d3b1a1513de66247974634911345b98, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d3b1a1513de66247974634911345b98, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &347177285
@@ -342,25 +324,10 @@ Transform:
   m_PrefabParentObject: {fileID: 4602283033391432, guid: 9684fcace7640804884e066b8068b2c0,
     type: 2}
   m_PrefabInternal: {fileID: 736700962}
---- !u!1 &981986376 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 129800, guid: 1d3b1a1513de66247974634911345b98, type: 2}
-  m_PrefabInternal: {fileID: 185825567}
 --- !u!4 &981986377 stripped
 Transform:
   m_PrefabParentObject: {fileID: 427610, guid: 1d3b1a1513de66247974634911345b98, type: 2}
   m_PrefabInternal: {fileID: 185825567}
---- !u!114 &981986378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 981986376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da5b81b111bdc4142a0d22d8c8416390, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1039612482
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +596,7 @@ GameObject:
   - component: {fileID: 1671739729}
   - component: {fileID: 1671739728}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Boat Floor and walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
