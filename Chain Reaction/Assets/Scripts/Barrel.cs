@@ -4,24 +4,28 @@ using UnityEngine;
 
 
 
-public class Barrel : MonoBehaviour {
+public class Barrel : MonoBehaviour
+{
 
     public BarrelExplosion ExplosionPrefab;
 
-	// Use this for initialization
-	void Start() {
-	}
-	
-	// Update is called once per frame
-	void Update() {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
     [HideInInspector]
     public bool alive = true;
     public bool hasDetonator = false;
 
 
-    public void Explode() {
+    public void Explode()
+    {
         if (!alive)
             return;
         alive = false;
@@ -36,13 +40,19 @@ public class Barrel : MonoBehaviour {
         foreach (Collider collision in collisions)
         {
             var barrel = collision.gameObject.GetComponent<Barrel>();
-            if (!barrel)
-                continue;
+            var destructible = collision.gameObject.GetComponent<Destructible>();
+            if (barrel)
+                barrel.Explode();
+            if (destructible)
+                Destroy(collision);
 
-            barrel.Explode();
+
+        }
+        if (ExplosionPrefab != null)
+        {
+            GameObject.Instantiate(ExplosionPrefab.gameObject, gameObject.transform.position, Quaternion.identity);
         }
 
-        GameObject.Instantiate(ExplosionPrefab.gameObject, gameObject.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 
