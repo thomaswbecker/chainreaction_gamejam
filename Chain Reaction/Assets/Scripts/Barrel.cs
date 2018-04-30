@@ -42,7 +42,8 @@ public class Barrel : MonoBehaviour, IExplodeable
                 barrel.Explode();
             var destructible = collision.gameObject.GetComponent<Destructible>();
 
-            // FIXME:  What are we trying to do with Destructible?
+            /*Destructible makes objects with that component be destroyed by explosions without an explosion of their own, 
+            such as bad guys and certain types of containers.*/
             if (destructible)
                 Destroy(destructible); 
 
