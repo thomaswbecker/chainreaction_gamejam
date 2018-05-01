@@ -37,17 +37,17 @@ public class Barrel : MonoBehaviour, IExplodeable
         var collisions = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider collision in collisions)
         {
-            var barrel = collision.gameObject.GetComponent<IExplodeable>();
-            if (barrel != null)
-                barrel.Explode();
-            var destructible = collision.gameObject.GetComponent<Destructible>();
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, (collision.transform.position - transform.position), out hit, 10f) )
+            {
+                if (hit.transform == collision.transform)
+                {
 
-            /*Destructible makes objects with that component be destroyed by explosions without an explosion of their own, 
-            such as bad guys and certain types of containers.*/
-            if (destructible)
-                Destroy(destructible); 
-
-
+                    var barrel = collision.gameObject.GetComponent<IExplodeable>();
+                    if (barrel != null)
+                        barrel.Explode();
+                }
+            }
         }
         if (ExplosionPrefab != null)
         {

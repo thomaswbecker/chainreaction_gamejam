@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destructible : MonoBehaviour
+public class Destructible : MonoBehaviour, IExplodeable
 {
 
     // Use this for initialization
@@ -19,6 +19,11 @@ public class Destructible : MonoBehaviour
     private void OnDestroy()
     {
         
+        
+    }
+
+    public void Explode()
+    {
         Destroy(gameObject);
         Debug.Log("Ouch! I've been killed by a cleverly executed sequence of events!");
     }
