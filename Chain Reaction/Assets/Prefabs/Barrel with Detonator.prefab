@@ -360,5 +360,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2fef34d6dd8b640a348e50658ba054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RadiusIndicatorPrefab: {fileID: 1960640935216324, guid: afe0d5303ca31b745821508d318bb08b,
+  RadiusIndicatorPrefab: {fileID: 1159619652869468, guid: f403cf65ab552a14fbe18c1dafde58d7,
     type: 2}

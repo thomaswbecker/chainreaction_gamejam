@@ -23,14 +23,14 @@ public class Detonator : MonoBehaviour {
     {
         if (RadiusIndicatorPrefab)
         {
-            GameObject instance = GameObject.Instantiate(RadiusIndicatorPrefab, transform);
-            Debug.Log("Spawning " + instance);
+            GameObject instance = GameObject.Instantiate(RadiusIndicatorPrefab, transform.parent.GetComponent<LevelManager>().Groundplane);
             widgetInstance = instance.GetComponent<ExplosionIndicatorWidget>();
-            widgetInstance.enabled = true;
+            widgetInstance.TrackedDetonator = this;
         }
     }
     void OnMouseExit()
     {
-        Destroy(widgetInstance.gameObject);
+        if (widgetInstance && widgetInstance.gameObject)
+            Destroy(widgetInstance.gameObject);
     }
 }

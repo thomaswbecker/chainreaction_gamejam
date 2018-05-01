@@ -66,12 +66,13 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Radius: 0.8
+    - _Radius: 0.9
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Thickness: 0.4933998
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.5735294, g: 0.26146194, b: 0.26146194, a: 1}
+    - _Color: {r: 1, g: 0.18431373, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
