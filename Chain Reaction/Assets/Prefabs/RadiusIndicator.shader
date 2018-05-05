@@ -8,6 +8,7 @@
 	{
 		_Color("Color (RGBA)", Color) = (0, 0, 0, 1) // add _Color property
 		_Radius("Radius", Range(0.2,0.8)) = 0.8
+		_Thickness("Thickness", Float) = 1
 	}
 	SubShader
 	{
@@ -45,6 +46,7 @@
 			float4 _MainTex_ST;
 			float4 _Color;
 			float _Radius;
+			float _Thickness;
 			v2f vert (appdata v)
 			{
 				v2f o;
@@ -61,7 +63,7 @@
 				//fixed4 col = tex2D(_MainTex, i.uv);
 				fixed4 col = _Color;
 				float r = length((i.uv - 0.5) * 2);
-				float compress = 15;
+				float compress = 15/_Thickness;
 				float peak = 1.0 - pow(abs(compress * (r - _Radius)), 3.5);
 				//float peak = saturate(pow(cos(3.14 * r * 0.5), 3.5));
 				col.a = saturate(col.a * peak);
