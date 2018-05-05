@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class HudDisplayScript : MonoBehaviour {
     public Text barrelCountText;
 
+    public Text enemyCountText;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -16,5 +18,9 @@ public class HudDisplayScript : MonoBehaviour {
         GameObject[] barrelsRemaining;
         barrelsRemaining = GameObject.FindGameObjectsWithTag("Barrel");
         barrelCountText.text = barrelsRemaining.Length.ToString();
+
+        GameObject[] enemiesRemaining;
+        enemiesRemaining = GameObject.FindGameObjectsWithTag("Enemy");
+        enemyCountText.text = enemiesRemaining.Length.ToString();
     }
 }
