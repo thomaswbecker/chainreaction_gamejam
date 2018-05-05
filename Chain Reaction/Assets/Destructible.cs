@@ -24,7 +24,8 @@ public class Destructible : MonoBehaviour, IExplodeable
 
     public void Explode()
     {
-        Destroy(gameObject);
+        
         Debug.Log("Ouch! I've been killed by a cleverly executed sequence of events!");
+        Destroy(gameObject);
     }
 }
