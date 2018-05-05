@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
 public class Barrel : MonoBehaviour, IExplodeable 
 {
-
+    public int ChainExplosionDelayTimeIndex = 0;
     public BarrelExplosion ExplosionPrefab;
 
     // Use this for initialization
@@ -30,9 +29,19 @@ public class Barrel : MonoBehaviour, IExplodeable
         StartCoroutine(ExplosionSequence());
     }
 
+    float GetExplosionDelayTime()
+    {
+        var numTimes = GameSettings.Instance.ChainExplosionDelayTimes.Length;
+        if (ChainExplosionDelayTimeIndex >= numTimes)
+        {
+            Debug.LogError("ChainExplosionDelayTimeIndex out of range: " + ChainExplosionDelayTimeIndex);
+            return 0f;
+        }
+        return GameSettings.Instance.ChainExplosionDelayTimes[ChainExplosionDelayTimeIndex];
+    }
     IEnumerator ExplosionSequence()
     {
-        yield return new WaitForSeconds(GameSettings.Instance.ChainExplosionDelay);
+        yield return new WaitForSeconds(GetExplosionDelayTime());
         var radius = GameSettings.Instance.ExplosionRadius;
         var collisions = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider collision in collisions)
