@@ -64,6 +64,7 @@ public class PauseScript : MonoBehaviour {
         Unpause();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene("Pause Menu", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Level HUD", LoadSceneMode.Additive);
     }
 
     public void LevelSelect()

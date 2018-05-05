@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 114967821294495896}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -348,4 +348,3 @@ MonoBehaviour:
   ExplosionPrefab: {fileID: 114899428777681686, guid: de77429ac56271142bd98aeb131a6fe1,
     type: 2}
   alive: 1
-  hasDetonator: 0

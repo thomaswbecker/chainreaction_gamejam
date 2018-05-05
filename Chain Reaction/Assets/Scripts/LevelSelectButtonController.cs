@@ -18,5 +18,6 @@ public class LevelSelectButtonController : MonoBehaviour {
     {
         SceneManager.LoadScene(levelScene);
         SceneManager.LoadScene("Pause Menu", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Level HUD", LoadSceneMode.Additive);
     }
 }
