@@ -23,7 +23,7 @@ public class Detonator : MonoBehaviour {
     {
         if (RadiusIndicatorPrefab)
         {
-            GameObject instance = GameObject.Instantiate(RadiusIndicatorPrefab, transform.parent.GetComponent<LevelManager>().Groundplane);
+            GameObject instance = GameObject.Instantiate(RadiusIndicatorPrefab, LevelSingleton.Instance.GroundRotator);
             widgetInstance = instance.GetComponent<ExplosionIndicatorWidget>();
             widgetInstance.TrackedDetonator = this;
         }

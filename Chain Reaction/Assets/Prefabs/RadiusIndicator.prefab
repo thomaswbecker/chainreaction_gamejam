@@ -138,6 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e447f07375b8fff41b0000ba4d1bd4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Thickness: 5
+  Thickness: 1
   MeshRendererInstance: {fileID: 23161121552840806}
   TrackedDetonator: {fileID: 0}

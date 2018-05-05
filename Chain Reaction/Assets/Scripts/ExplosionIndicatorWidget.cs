@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 [RequireComponent(typeof(Material))]
@@ -20,10 +21,12 @@ public class ExplosionIndicatorWidget : MonoBehaviour {
         MeshRendererInstance.enabled = false;
     }
 
+    static List<GameObject> rootGameObjects; // reusable buffer between frames
+
     // Our parent must be the ground plane.
     Transform GetGroundTransform()
     {
-        return transform.parent;
+        return LevelSingleton.Instance.GroundRotator;
     }
     void SnapToGround()
     {
