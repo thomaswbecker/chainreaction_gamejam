@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PauseScript : MonoBehaviour {
@@ -9,9 +10,21 @@ public class PauseScript : MonoBehaviour {
 
     public GameObject pauseMenu;
 
+    public Button restartLevelButton;
+
+    public Button mainMenuButton;
+
+    public Button levelSelectButton;
+
 	// Use this for initialization
 	void Start () {
         pauseMenu.SetActive(false);
+
+        restartLevelButton.onClick.AddListener(RestartLevel);
+
+        mainMenuButton.onClick.AddListener(MainMenu);
+
+        levelSelectButton.onClick.AddListener(LevelSelect);
 	}
 	
 	// Update is called once per frame
@@ -28,7 +41,12 @@ public class PauseScript : MonoBehaviour {
                 Unpause();
             }
         }
-	}
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RestartLevel();
+        }
+    }
 
     private void Pause()
     {
@@ -45,5 +63,18 @@ public class PauseScript : MonoBehaviour {
     public void RestartLevel() {
         Unpause();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Pause Menu", LoadSceneMode.Additive);
+    }
+
+    public void LevelSelect()
+    {
+        Unpause();
+        SceneManager.LoadScene("Level Pick Menu");
+    }
+
+    public void MainMenu()
+    {
+        Unpause();
+        SceneManager.LoadScene("Main Menu");
     }
 }
