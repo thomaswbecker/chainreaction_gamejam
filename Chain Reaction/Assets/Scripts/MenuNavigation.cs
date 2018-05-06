@@ -24,6 +24,11 @@ public class MenuNavigation : MonoBehaviour {
         SceneManager.LoadScene("Level Pick Menu");
     }
 
+    public static void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
     public void SwitchToMainMenu()
     {
         MainMenu();
@@ -32,6 +37,11 @@ public class MenuNavigation : MonoBehaviour {
     public void SwtichToLevelSelect()
     {
         LevelSelect();
+    }
+
+    public void SwitchToCredits()
+    {
+        Credits();
     }
 
     public void QuitGame()

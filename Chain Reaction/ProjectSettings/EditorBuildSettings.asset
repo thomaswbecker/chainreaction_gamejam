@@ -23,3 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menus/Level HUD.unity
     guid: 57a98c83c6ee7344a8693fa1a87f5601
+  - enabled: 1
+    path: Assets/Scenes/Menus/Credits.unity
+    guid: 95116b897939f5348b1a9c385d9a5b46
