@@ -54,8 +54,10 @@ public class ExplosionIndicatorWidget : MonoBehaviour {
         float quadSpaceRadius = scalemax;
         MeshRendererInstance.sharedMaterial.SetFloat("_Radius", quadSpaceRadius);
 
-        float wobble = (startRamp + (Mathf.Sin(enabledTime * Mathf.PI * 2f * freq) * wobblescale * 0.5f) - wobblescale * 0.5f);
-        float objScale = GameSettings.Instance.ExplosionRadius * (1f / scalemax) * wobble;
+        float wobble = wobblescale * (Mathf.Sin(enabledTime * Mathf.PI * 2f * freq) * 0.5f);
+        float objScale = GameSettings.Instance.ExplosionRadius * (1f / scalemax) * (startRamp + wobble);
+        objScale *= 2; // the quad is 1x1, and we want to specify the radius rather than the diameter
+
         transform.localScale = new Vector3(objScale, objScale, objScale);
 
         MeshRendererInstance.sharedMaterial.SetFloat("_Thickness", Thickness/objScale);

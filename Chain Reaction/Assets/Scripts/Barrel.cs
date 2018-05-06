@@ -39,9 +39,24 @@ public class Barrel : MonoBehaviour, IExplodeable
         }
         return GameSettings.Instance.ChainExplosionDelayTimes[ChainExplosionDelayTimeIndex];
     }
+    GameObject createCountdownText(float countdownTime)
+    {
+        var go = GameObject.Instantiate(GameSettings.Instance.ExplosionCountdownPrefab);
+        var timerObject = go.GetComponent<ExplosionTimerText>();
+        timerObject.StartCountdown(countdownTime);
+        return go;
+    }
     IEnumerator ExplosionSequence()
     {
-        yield return new WaitForSeconds(GetExplosionDelayTime());
+        var countdownTime = GetExplosionDelayTime();
+        // show countdown for non trivial explosion timings
+        if (countdownTime >= GameSettings.Instance.MinDelayForCountdownPopup)
+        {
+            createCountdownText(countdownTime).transform.SetParent(transform, false);
+        }
+
+        yield return new WaitForSeconds(countdownTime);
+
         var radius = GameSettings.Instance.ExplosionRadius;
         var collisions = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider collision in collisions)
