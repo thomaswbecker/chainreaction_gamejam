@@ -70,12 +70,12 @@ public class PauseScript : MonoBehaviour {
     public void LevelSelect()
     {
         Unpause();
-        SceneManager.LoadScene("Level Pick Menu");
+        MenuNavigation.LevelSelect();
     }
 
     public void MainMenu()
     {
         Unpause();
-        SceneManager.LoadScene("Main Menu");
+        MenuNavigation.MainMenu();
     }
 }
