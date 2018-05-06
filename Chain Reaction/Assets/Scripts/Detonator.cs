@@ -4,7 +4,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(IExplodeable))]
 public class Detonator : MonoBehaviour {
-    public GameObject RadiusIndicatorPrefab;
     ExplosionIndicatorWidget widgetInstance;
 
     void OnMouseOver()
@@ -21,9 +20,9 @@ public class Detonator : MonoBehaviour {
     }
     void OnMouseEnter()
     {
-        if (RadiusIndicatorPrefab)
+        if (GameSettings.Instance.RadiusIndicatorPrefab)
         {
-            GameObject instance = GameObject.Instantiate(RadiusIndicatorPrefab, LevelSingleton.Instance.GroundRotator);
+            GameObject instance = GameObject.Instantiate(GameSettings.Instance.RadiusIndicatorPrefab, LevelSingleton.Instance.GroundRotator);
             widgetInstance = instance.GetComponent<ExplosionIndicatorWidget>();
             widgetInstance.TrackedDetonator = this;
         }
