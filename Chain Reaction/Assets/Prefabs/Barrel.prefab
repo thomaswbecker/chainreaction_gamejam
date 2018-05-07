@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23397051762276586}
   - component: {fileID: 64796280403044416}
   - component: {fileID: 114941229225245586}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bestBarrelModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 4602283033391432}
   - component: {fileID: 54187487955062086}
   - component: {fileID: 114967821294495896}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Barrel
   m_TagString: Barrel
   m_Icon: {fileID: 0}

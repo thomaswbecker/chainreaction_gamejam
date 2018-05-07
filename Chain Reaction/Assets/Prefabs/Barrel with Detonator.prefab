@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 54303258117094436}
   - component: {fileID: 114064080870589968}
   - component: {fileID: 114681454708555042}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Barrel with Detonator
   m_TagString: Barrel
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 23813355147640406}
   - component: {fileID: 64807778694940974}
   - component: {fileID: 114838026916967498}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bestBarrelModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

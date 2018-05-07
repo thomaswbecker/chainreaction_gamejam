@@ -61,17 +61,19 @@ public class Barrel : MonoBehaviour, IExplodeable
         var collisions = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider collision in collisions)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, (collision.transform.position - transform.position), out hit, 10f) )
-            {
-                if (hit.transform == collision.transform)
-                {
+            // If it's not something that can explode, we don't care.
+            var explodeable = collision.GetComponent<IExplodeable>();
+            if (explodeable == null)
+                continue;
 
-                    var barrel = collision.gameObject.GetComponent<IExplodeable>();
-                    if (barrel != null)
-                        barrel.Explode();
-                }
+            int layerMask = ~LayerMask.NameToLayer("ExplosionBlockers"); // check only explosion blockers (walls etc.).  We don't want barrels to block other barrels.
+            // If there's a wall in the way, we also don't care.
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, (collision.transform.position - transform.position), out hit, 10f, layerMask))
+            {
+                continue;
             }
+            explodeable.Explode();
         }
         if (ExplosionPrefab != null)
         {
