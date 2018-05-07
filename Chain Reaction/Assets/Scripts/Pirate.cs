@@ -10,6 +10,7 @@ class Pirate : MonoBehaviour, IExplodeable
     public void Explode()
     {
         isAlive = false;
+        tag = "Dead Enemy";
         Debug.Log("Pirate " + this.GetHashCode() + " has been eliminated!");
     }
 }

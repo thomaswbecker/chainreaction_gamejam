@@ -19,8 +19,9 @@ public class HudDisplayScript : MonoBehaviour {
         barrelsRemaining = GameObject.FindGameObjectsWithTag("Barrel");
         barrelCountText.text = barrelsRemaining.Length.ToString();
 
-        GameObject[] enemiesRemaining;
-        enemiesRemaining = GameObject.FindGameObjectsWithTag("Enemy");
-        enemyCountText.text = enemiesRemaining.Length.ToString();
+        GameObject[] enemies;
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        int enemiesAlive = 0;
+        enemyCountText.text = enemiesAlive.ToString();
     }
 }
