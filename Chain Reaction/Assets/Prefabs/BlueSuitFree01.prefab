@@ -341,11 +341,11 @@ GameObject:
   - component: {fileID: 427610}
   - component: {fileID: 9526514}
   - component: {fileID: 54841844399701158}
-  - component: {fileID: 136321675839235260}
-  - component: {fileID: 114128935291276716}
+  - component: {fileID: 136201838151187324}
+  - component: {fileID: 114380375437136762}
   m_Layer: 0
   m_Name: BlueSuitFree01
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1506,8 +1506,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129800}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.77, y: 0, z: 12.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 432814}
@@ -2371,6 +2371,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!137 &13715772
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -2384,6 +2385,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 4588a918695c3404b81ce408babb4dcb, type: 2}
   m_StaticBatchInfo:
@@ -2499,6 +2501,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 69a125d0e01afe4439db34551f8f3268, type: 2}
   m_StaticBatchInfo:
@@ -2563,7 +2566,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &114128935291276716
+--- !u!114 &114380375437136762
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2571,10 +2574,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 129800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da5b81b111bdc4142a0d22d8c8416390, type: 3}
+  m_Script: {fileID: 11500000, guid: 8289603ef2bb768469db8a0b408e3d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &136321675839235260
+--- !u!136 &136201838151187324
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2583,7 +2586,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.7816838
+  m_Radius: 0.5261964
+  m_Height: 2.3569665
   m_Direction: 1
-  m_Center: {x: -0.00000041932788, y: 1.01, z: 0}
+  m_Center: {x: 0, y: 0.91, z: 0}
