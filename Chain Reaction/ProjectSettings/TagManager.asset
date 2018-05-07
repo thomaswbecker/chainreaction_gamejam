@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Barrel
   - Enemy
+  - Dead Enemy
   layers:
   - Default
   - TransparentFX
