@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 33635673839477834}
   - component: {fileID: 23813355147640406}
   - component: {fileID: 64807778694940974}
+  - component: {fileID: 114838026916967498}
   m_Layer: 0
   m_Name: bestBarrelModel
   m_TagString: Untagged
@@ -87,6 +88,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: f8e21c4dec8ec2e4f92a77057ca632d6, type: 2}
   - {fileID: 2100000, guid: 172e54658f4ed084e81a7ad1951cbc79, type: 2}
@@ -171,3 +173,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2fef34d6dd8b640a348e50658ba054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114838026916967498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340621486865878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba288a8bf806c3042bf49c9f4270ebab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RealExplodeable: {fileID: 114064080870589968}

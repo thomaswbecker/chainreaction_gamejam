@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-interface IExplodeable
+public interface IExplodeable
 {
     void Explode();
 }
