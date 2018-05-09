@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Barrel : MonoBehaviour, IExplodeable
+public class Barrel : MonoBehaviour, IExplodeable 
 {
     public int ChainExplosionDelayTimeIndex = 0;
     public BarrelExplosion ExplosionPrefab;
@@ -61,23 +61,18 @@ public class Barrel : MonoBehaviour, IExplodeable
         var collisions = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider collision in collisions)
         {
-            Debug.Log(collisions.Length + " colliders found");
             // If it's not something that can explode, we don't care.
             var explodeable = collision.GetComponent<IExplodeable>();
             if (explodeable == null)
                 continue;
 
-            int layerMask = LayerMask.NameToLayer("ExplosionBlockers"); // check only explosion blockers (walls etc.).  We don't want barrels to block other barrels.
+            int layerMask = ~LayerMask.NameToLayer("ExplosionBlockers"); // check only explosion blockers (walls etc.).  We don't want barrels to block other barrels.
             // If there's a wall in the way, we also don't care.
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, (collision.transform.position - transform.position), out hit, 10f))
+            if (Physics.Raycast(transform.position, (collision.transform.position - transform.position), out hit, 10f, layerMask))
             {
-              
-                    if(!collision.transform.IsChildOf(hit.transform))
-                    continue;
-                
+                continue;
             }
-            
             explodeable.Explode();
         }
         if (ExplosionPrefab != null)
