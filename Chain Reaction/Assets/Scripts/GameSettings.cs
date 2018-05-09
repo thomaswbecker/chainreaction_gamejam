@@ -7,7 +7,7 @@ using System.Linq;
 
 [CreateAssetMenu(fileName = "GameSettings", menuName = "Game Settings File", order = 1)]
 public class GameSettings : ScriptableObject {
-    
+    public AnimationCurve BoatRockCurve;
     public float ExplosionRadius = 1.0f;
     public float BarrelClickDelay = 1.0f;
     public float [] ChainExplosionDelayTimes;

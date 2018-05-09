@@ -11,6 +11,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10819149fb6255f4aa2ad4725ecec4d2, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
+  BoatRockCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.8852901
+      outSlope: 1.8852901
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.05822598
+    - serializedVersion: 3
+      time: 0.8152941
+      value: 0.97446877
+      inSlope: 0.25013044
+      outSlope: 0.25013044
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.050468694
+      outWeight: 0.28137946
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.04547057
+      outSlope: 0.04547057
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.2984106
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   ExplosionRadius: 3
   BarrelClickDelay: 1
   ChainExplosionDelayTimes:
