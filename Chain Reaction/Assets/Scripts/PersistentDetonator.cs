@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PersistentDetonator : MonoBehaviour, IExplodeable
 {
+    [SerializeField] Transform ObjectCenterPoint;
     public float DetonatorDuration = 5f;
     private bool active = false;
     private SphereCollider sphere;
@@ -35,5 +36,10 @@ public class PersistentDetonator : MonoBehaviour, IExplodeable
         explodable.Explode();
 
     }
+    public Vector3 GetObjectCenter()
+    {
+        return ObjectCenterPoint != null ? ObjectCenterPoint.position : transform.position;
+    }
+
 
 }

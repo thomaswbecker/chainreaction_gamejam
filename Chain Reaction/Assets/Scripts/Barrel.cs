@@ -5,6 +5,28 @@ using UnityEngine;
 
 public class Barrel : MonoBehaviour, IExplodeable 
 {
+
+    float MyExplosionRadius()
+    {
+        return GameSettings.Instance.ExplosionRadius;
+    }
+    void OnDrawGizmos()
+    {
+        // Draw a yellow sphere at the transform's position
+        Color color = Color.magenta;
+        color.a = 0.18f;
+        Gizmos.color = color;
+        Gizmos.DrawWireSphere(GetObjectCenter(), MyExplosionRadius());
+    }
+    void OnDrawGizmosSelected()
+    {
+        // Draw a yellow sphere at the transform's position
+        Color color = Color.magenta;
+        color.a = 0.35f;
+        Gizmos.color = color;
+        Gizmos.DrawWireSphere(GetObjectCenter(), MyExplosionRadius());
+    }
+    [SerializeField] protected Transform CenterPoint;
     public int ChainExplosionDelayTimeIndex = 0;
     public BarrelExplosion ExplosionPrefab;
 
@@ -21,6 +43,10 @@ public class Barrel : MonoBehaviour, IExplodeable
     [HideInInspector]
     public bool alive = true;
 
+    public Vector3 GetObjectCenter()
+    {
+        return CenterPoint.position;
+    }
     public void Explode()
     {
         if (!alive)
@@ -56,15 +82,19 @@ public class Barrel : MonoBehaviour, IExplodeable
         }
 
         yield return new WaitForSeconds(countdownTime);
-
-        var radius = GameSettings.Instance.ExplosionRadius;
-        var collisions = Physics.OverlapSphere(transform.position, radius);
+        int explosionBlockersLayer = 1 << LayerMask.NameToLayer("ExplosionBlockers"); // check only explosion blockers (walls etc.).  We don't want barrels to block other barrels.
+        int explodeablesLayer = 1 << LayerMask.NameToLayer("Explodeables");
+        var radius = MyExplosionRadius();
+        Vector3 myCenter = GetObjectCenter();
+        var collisions = Physics.OverlapSphere(myCenter, radius, explodeablesLayer); // find all nearby barrels (only)
+        
         foreach (Collider collision in collisions)
         {
             // If it's not something that can explode, we don't care.
             var explodeable = collision.GetComponent<IExplodeable>();
             if (explodeable == null)
                 continue;
+
 
             var layerMask = 1 << LayerMask.NameToLayer("ExplosionBlockers"); // check only explosion blockers (walls etc.).  We don't want barrels to block other barrels.
             // If there's a wall in the way, we also don't care.
@@ -74,10 +104,15 @@ public class Barrel : MonoBehaviour, IExplodeable
                 
                 continue;
             }
-            //if(Physics.Raycast(transform.position, (collision.transform.position - transform.position), out hit, radius, ~layerMask))
-            //{
-            //    explodeable.Explode();
-            //}
+
+            
+            // If there's a wall in the way, or if we're checking out ourselves, we also don't care.
+            
+            Vector3 displacement = explodeable.GetObjectCenter() - myCenter;
+            if (displacement.sqrMagnitude < 0.01f || Physics.Raycast(myCenter, displacement, out hit, displacement.magnitude, explosionBlockersLayer))
+            {
+                continue;
+            }
             explodeable.Explode();
         }
         if (ExplosionPrefab != null)
@@ -88,4 +123,8 @@ public class Barrel : MonoBehaviour, IExplodeable
         Destroy(this.gameObject);
     }
 
+    Vector3 IExplodeable.GetObjectCenter()
+    {
+        throw new System.NotImplementedException();
+    }
 }
