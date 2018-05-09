@@ -33,6 +33,7 @@ public class Barrel : MonoBehaviour, IExplodeable
     // Use this for initialization
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -45,6 +46,10 @@ public class Barrel : MonoBehaviour, IExplodeable
 
     public Vector3 GetObjectCenter()
     {
+        if (!CenterPoint)
+        {
+            CenterPoint = transform;
+        }
         return CenterPoint.position;
     }
     public void Explode()

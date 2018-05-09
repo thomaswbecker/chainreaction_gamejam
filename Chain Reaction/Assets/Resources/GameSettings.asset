@@ -15,7 +15,7 @@ MonoBehaviour:
   BarrelClickDelay: 1
   ChainExplosionDelayTimes:
   - 0.15
-  - 1
+  - 0.2
   MinDelayForCountdownPopup: 0.4
   RadiusIndicatorPrefab: {fileID: 1159619652869468, guid: f403cf65ab552a14fbe18c1dafde58d7,
     type: 2}
