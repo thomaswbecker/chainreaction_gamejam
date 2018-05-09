@@ -66,13 +66,18 @@ public class Barrel : MonoBehaviour, IExplodeable
             if (explodeable == null)
                 continue;
 
-            int layerMask = ~LayerMask.NameToLayer("ExplosionBlockers"); // check only explosion blockers (walls etc.).  We don't want barrels to block other barrels.
+            var layerMask = 1 << LayerMask.NameToLayer("ExplosionBlockers"); // check only explosion blockers (walls etc.).  We don't want barrels to block other barrels.
             // If there's a wall in the way, we also don't care.
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, (collision.transform.position - transform.position), out hit, 10f, layerMask))
+            if (Physics.Raycast(transform.position, (collision.transform.position - transform.position), out hit, radius, layerMask))
             {
+                
                 continue;
             }
+            //if(Physics.Raycast(transform.position, (collision.transform.position - transform.position), out hit, radius, ~layerMask))
+            //{
+            //    explodeable.Explode();
+            //}
             explodeable.Explode();
         }
         if (ExplosionPrefab != null)

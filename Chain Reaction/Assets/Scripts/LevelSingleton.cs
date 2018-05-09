@@ -38,7 +38,7 @@ public class LevelSingleton : MonoBehaviour {
     {
         foreach (var go in rootGameObjects)
         {
-            var camera = go.GetComponent<GameplayCamera>();
+            var camera = go.GetComponent<Camera>();
             if (camera)
                 return camera.GetComponent<Camera>();
         }
