@@ -8,4 +8,8 @@ public class ProxyExploder : MonoBehaviour, IExplodeable
     {
         RealExplodeable.Explode();
     }
+    public Vector3 GetObjectCenter()
+    {
+        return RealExplodeable.GetObjectCenter();
+    }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Barrel : MonoBehaviour, IExplodeable
 {
+    [SerializeField] protected Transform CenterPoint;
     public int ChainExplosionDelayTimeIndex = 0;
     public BarrelExplosion ExplosionPrefab;
 
@@ -21,6 +22,10 @@ public class Barrel : MonoBehaviour, IExplodeable
     [HideInInspector]
     public bool alive = true;
 
+    public Vector3 GetObjectCenter()
+    {
+        return CenterPoint.position;
+    }
     public void Explode()
     {
         if (!alive)
@@ -56,28 +61,27 @@ public class Barrel : MonoBehaviour, IExplodeable
         }
 
         yield return new WaitForSeconds(countdownTime);
-
+        int explosionBlockersLayer = 1 << LayerMask.NameToLayer("ExplosionBlockers"); // check only explosion blockers (walls etc.).  We don't want barrels to block other barrels.
+        int explodeablesLayer = 1 << LayerMask.NameToLayer("Explodeables");
         var radius = GameSettings.Instance.ExplosionRadius;
-        var collisions = Physics.OverlapSphere(transform.position, radius);
+        Vector3 myCenter = GetObjectCenter();
+        var collisions = Physics.OverlapSphere(myCenter, radius, explodeablesLayer); // find all nearby barrels (only)
+        
         foreach (Collider collision in collisions)
         {
-            Debug.Log(collisions.Length + " colliders found");
             // If it's not something that can explode, we don't care.
             var explodeable = collision.GetComponent<IExplodeable>();
             if (explodeable == null)
                 continue;
 
-            int layerMask = LayerMask.NameToLayer("ExplosionBlockers"); // check only explosion blockers (walls etc.).  We don't want barrels to block other barrels.
-            // If there's a wall in the way, we also don't care.
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, (collision.transform.position - transform.position), out hit, 10f))
-            {
-              
-                    if(!collision.transform.IsChildOf(hit.transform))
-                    continue;
-                
-            }
             
+            // If there's a wall in the way, or if we're checking out ourselves, we also don't care.
+            RaycastHit hit;
+            Vector3 displacement = explodeable.GetObjectCenter() - myCenter;
+            if (displacement.sqrMagnitude < 0.01f || Physics.Raycast(myCenter, displacement, out hit, displacement.magnitude, explosionBlockersLayer))
+            {
+                continue;
+            }
             explodeable.Explode();
         }
         if (ExplosionPrefab != null)
@@ -88,4 +92,8 @@ public class Barrel : MonoBehaviour, IExplodeable
         Destroy(this.gameObject);
     }
 
+    Vector3 IExplodeable.GetObjectCenter()
+    {
+        throw new System.NotImplementedException();
+    }
 }

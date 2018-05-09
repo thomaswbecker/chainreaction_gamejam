@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Destructible : MonoBehaviour, IExplodeable
 {
-
+    [SerializeField] Transform ObjectCenter;
     // Use this for initialization
     void Start()
     {
-
+        Debug.Assert(ObjectCenter != null);
     }
 
     // Update is called once per frame
@@ -27,5 +27,9 @@ public class Destructible : MonoBehaviour, IExplodeable
         
         Debug.Log("Ouch! I've been killed by a cleverly executed sequence of events!");
         Destroy(gameObject);
+    }
+    public Vector3 GetObjectCenter()
+    {
+        return ObjectCenter != null ? ObjectCenter.position : transform.position;
     }
 }
