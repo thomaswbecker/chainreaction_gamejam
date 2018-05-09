@@ -5,6 +5,27 @@ using UnityEngine;
 
 public class Barrel : MonoBehaviour, IExplodeable
 {
+
+    float MyExplosionRadius()
+    {
+        return GameSettings.Instance.ExplosionRadius;
+    }
+    void OnDrawGizmos()
+    {
+        // Draw a yellow sphere at the transform's position
+        Color color = Color.magenta;
+        color.a = 0.18f;
+        Gizmos.color = color;
+        Gizmos.DrawWireSphere(GetObjectCenter(), MyExplosionRadius());
+    }
+    void OnDrawGizmosSelected()
+    {
+        // Draw a yellow sphere at the transform's position
+        Color color = Color.magenta;
+        color.a = 0.35f;
+        Gizmos.color = color;
+        Gizmos.DrawWireSphere(GetObjectCenter(), MyExplosionRadius());
+    }
     [SerializeField] protected Transform CenterPoint;
     public int ChainExplosionDelayTimeIndex = 0;
     public BarrelExplosion ExplosionPrefab;
@@ -63,7 +84,7 @@ public class Barrel : MonoBehaviour, IExplodeable
         yield return new WaitForSeconds(countdownTime);
         int explosionBlockersLayer = 1 << LayerMask.NameToLayer("ExplosionBlockers"); // check only explosion blockers (walls etc.).  We don't want barrels to block other barrels.
         int explodeablesLayer = 1 << LayerMask.NameToLayer("Explodeables");
-        var radius = GameSettings.Instance.ExplosionRadius;
+        var radius = MyExplosionRadius();
         Vector3 myCenter = GetObjectCenter();
         var collisions = Physics.OverlapSphere(myCenter, radius, explodeablesLayer); // find all nearby barrels (only)
         
