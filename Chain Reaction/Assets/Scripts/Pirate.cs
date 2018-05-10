@@ -8,7 +8,7 @@ class Pirate : MonoBehaviour, IExplodeable
     {
 
     }
-    public void Explode()
+    public void Explode(Vector3 force, float additionalDelay)
     {
         isAlive = false;
         tag = "Dead Enemy";

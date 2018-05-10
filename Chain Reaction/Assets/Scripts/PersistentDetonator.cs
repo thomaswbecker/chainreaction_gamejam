@@ -21,7 +21,7 @@ public class PersistentDetonator : MonoBehaviour, IExplodeable
     {
 
     }
-    public void Explode()
+    public void Explode(Vector3 force, float additionalDelay)
     {
         sphere.enabled = true;
 
@@ -33,8 +33,8 @@ public class PersistentDetonator : MonoBehaviour, IExplodeable
         Debug.Log(other.name + "Just entered!");
         var explodable = other.GetComponent<IExplodeable>();
         if (explodable == null) return;
-        explodable.Explode();
-
+        Vector3 vec = other.transform.position - transform.position;
+        explodable.Explode(ExplosionUtils.ExplosiveForce(vec, vec.magnitude, GameSettings.Instance.ExplosionRadius));
     }
     public Vector3 GetObjectCenter()
     {

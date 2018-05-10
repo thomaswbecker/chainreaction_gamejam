@@ -22,7 +22,7 @@ public class Destructible : MonoBehaviour, IExplodeable
         
     }
 
-    public void Explode()
+    public void Explode(Vector3 force, float additionalDelay)
     {
         
         Debug.Log("Ouch! I've been killed by a cleverly executed sequence of events!");

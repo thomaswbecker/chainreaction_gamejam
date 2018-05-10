@@ -4,9 +4,9 @@
 public class ProxyExploder : MonoBehaviour, IExplodeable
 {
     public Barrel RealExplodeable;
-    public void Explode()
+    public void Explode(Vector3 force, float additionalDelay)
     {
-        RealExplodeable.Explode();
+        RealExplodeable.Explode(force, additionalDelay);
     }
     public Vector3 GetObjectCenter()
     {

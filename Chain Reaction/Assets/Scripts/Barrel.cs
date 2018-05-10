@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Barrel : MonoBehaviour, IExplodeable 
 {
-
     float MyExplosionRadius()
     {
         return GameSettings.Instance.ExplosionRadius;
@@ -52,12 +51,13 @@ public class Barrel : MonoBehaviour, IExplodeable
         }
         return CenterPoint.position;
     }
-    public void Explode()
+    public void Explode(Vector3 force, float additionalDelay)
     {
         if (!alive)
             return;
         alive = false;
-        StartCoroutine(ExplosionSequence());
+        gameObject.AddComponent<EmissionModulator>();
+        StartCoroutine(ExplosionSequence(GetExplosionDelayTime() + additionalDelay));
     }
 
     float GetExplosionDelayTime()
@@ -77,9 +77,8 @@ public class Barrel : MonoBehaviour, IExplodeable
         timerObject.StartCountdown(countdownTime);
         return go;
     }
-    IEnumerator ExplosionSequence()
+    IEnumerator ExplosionSequence(float countdownTime)
     {
-        var countdownTime = GetExplosionDelayTime();
         // show countdown for non trivial explosion timings
         if (countdownTime >= GameSettings.Instance.MinDelayForCountdownPopup)
         {
@@ -101,24 +100,16 @@ public class Barrel : MonoBehaviour, IExplodeable
                 continue;
 
 
-            var layerMask = 1 << LayerMask.NameToLayer("ExplosionBlockers"); // check only explosion blockers (walls etc.).  We don't want barrels to block other barrels.
-            // If there's a wall in the way, we also don't care.
+            Vector3 displacement = explodeable.GetObjectCenter() - myCenter;
+            float distance = displacement.magnitude;
+            // If there's a wall in the way, or if we're checking out ourselves, we also don't care.
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, (collision.transform.position - transform.position), out hit, radius, layerMask))
+            if (displacement.sqrMagnitude < 0.01f || Physics.Raycast(myCenter, displacement, out hit, distance, explosionBlockersLayer))
             {
-                
                 continue;
             }
 
-            
-            // If there's a wall in the way, or if we're checking out ourselves, we also don't care.
-            
-            Vector3 displacement = explodeable.GetObjectCenter() - myCenter;
-            if (displacement.sqrMagnitude < 0.01f || Physics.Raycast(myCenter, displacement, out hit, displacement.magnitude, explosionBlockersLayer))
-            {
-                continue;
-            }
-            explodeable.Explode();
+            explodeable.Explode( ExplosionUtils.ExplosiveForce(displacement, distance, radius));
         }
         if (ExplosionPrefab != null)
         {

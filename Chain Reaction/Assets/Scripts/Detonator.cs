@@ -10,13 +10,8 @@ public class Detonator : MonoBehaviour {
     {
         if (Input.GetMouseButtonDown(0))
         {
-            StartCoroutine(MouseClickDelay(GameSettings.Instance.BarrelClickDelay));
+            GetComponent<IExplodeable>().Explode(Vector3.zero, additionalDelay: GameSettings.Instance.BarrelClickDelay);
         }
-    }
-    IEnumerator MouseClickDelay(float delayTime)
-    {
-        yield return new WaitForSeconds(delayTime);
-        GetComponent<IExplodeable>().Explode();
     }
     void OnMouseEnter()
     {
