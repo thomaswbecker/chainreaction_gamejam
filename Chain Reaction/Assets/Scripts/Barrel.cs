@@ -127,9 +127,4 @@ public class Barrel : MonoBehaviour, IExplodeable
 
         Destroy(this.gameObject);
     }
-
-    Vector3 IExplodeable.GetObjectCenter()
-    {
-        throw new System.NotImplementedException();
-    }
 }
