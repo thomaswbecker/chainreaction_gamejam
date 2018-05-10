@@ -341,15 +341,9 @@ GameObject:
   - component: {fileID: 427610}
   - component: {fileID: 9526514}
   - component: {fileID: 54841844399701158}
-<<<<<<< HEAD
   - component: {fileID: 136321675839235260}
   - component: {fileID: 114128935291276716}
   m_Layer: 0
-=======
-  - component: {fileID: 136201838151187324}
-  - component: {fileID: 114380375437136762}
-  m_Layer: 8
->>>>>>> fecda94ae9117b96ebd5d40aaf455b670e824b1c
   m_Name: BlueSuitFree01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
