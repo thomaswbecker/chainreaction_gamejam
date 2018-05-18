@@ -38,7 +38,7 @@ public class Barrel : MonoBehaviour, IExplodeable
     // Update is called once per frame
     void Update()
     {
-
+        
     }
     [HideInInspector]
     public bool alive = true;
