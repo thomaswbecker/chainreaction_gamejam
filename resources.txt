@@ -1,0 +1,13 @@
+Where I found the sound files:
+http://soundbible.com/
+
+Where I found the fire photos:
+https://pixabay.com/
+
+Where I found the explosions:
+https://assetstore.unity.com/packages/vfx/shaders/pyroclastic-explosions-3-5-7-16790
+https://assetstore.unity.com/packages/vfx/shaders/pyroclastic-explosions-10580
+
+Website I use to convert the game icon image (png) to an .ico:
+http://icoconvert.com/
+
