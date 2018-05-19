@@ -14,10 +14,8 @@ public class LevelSelectButtonController : MonoBehaviour {
 		
 	}
 
-    public void loadScene(string levelScene)
+    public void loadScene(int levelNumber)
     {
-        SceneManager.LoadScene(levelScene);
-        SceneManager.LoadScene("Pause Menu", LoadSceneMode.Additive);
-        SceneManager.LoadScene("Level HUD", LoadSceneMode.Additive);
+        MenuNavigation.LoadLevel(levelNumber);
     }
 }

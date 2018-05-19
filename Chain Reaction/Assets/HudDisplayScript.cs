@@ -8,6 +8,8 @@ public class HudDisplayScript : MonoBehaviour {
 
     public Text enemyCountText;
 
+    public Text detonatorCountText;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -18,6 +20,20 @@ public class HudDisplayScript : MonoBehaviour {
         GameObject[] barrelsRemaining;
         barrelsRemaining = GameObject.FindGameObjectsWithTag("Barrel");
         barrelCountText.text = barrelsRemaining.Length.ToString();
+        int detonatorCount = 0;
+        foreach(GameObject barrel in barrelsRemaining)
+        {
+            if(barrel.GetComponent(typeof(Detonator))  != null)
+            {
+                detonatorCount++;
+            }
+        }
+        detonatorCountText.text = detonatorCount.ToString();
+
+        if(detonatorCount == 0)
+        {
+
+        }
 
         GameObject[] enemies;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");

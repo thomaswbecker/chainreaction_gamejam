@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuNavigation : MonoBehaviour {
 
+    private static int numberOfLevels = 5;
+
+    private static int currentLevel = 1;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -34,6 +38,33 @@ public class MenuNavigation : MonoBehaviour {
         SceneManager.LoadScene("Instructions");
     }
 
+    public static void ReLoadLevel()
+    {
+        LoadLevel(currentLevel);
+    }
+
+    public static bool HasNextLevel()
+    {
+        return currentLevel < numberOfLevels;
+    }
+
+    public static void LoadNextLevel()
+    {
+        if(HasNextLevel())
+        {
+            currentLevel++;
+            LoadLevel(currentLevel);
+        }
+    }
+
+    public static void LoadLevel(int levelNumber)
+    {
+        currentLevel = levelNumber;
+        SceneManager.LoadScene("Level " + levelNumber);
+        SceneManager.LoadScene("Pause Menu", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Level HUD", LoadSceneMode.Additive);
+    }
+
     public void SwitchToMainMenu()
     {
         MainMenu();
@@ -57,5 +88,10 @@ public class MenuNavigation : MonoBehaviour {
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void SwitchToLevel(int levelNumber)
+    {
+        LoadLevel(levelNumber);
     }
 }

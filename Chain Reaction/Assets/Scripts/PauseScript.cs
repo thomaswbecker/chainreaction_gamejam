@@ -62,9 +62,7 @@ public class PauseScript : MonoBehaviour {
 
     public void RestartLevel() {
         Unpause();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        SceneManager.LoadScene("Pause Menu", LoadSceneMode.Additive);
-        SceneManager.LoadScene("Level HUD", LoadSceneMode.Additive);
+        MenuNavigation.ReLoadLevel();
     }
 
     public void LevelSelect()
