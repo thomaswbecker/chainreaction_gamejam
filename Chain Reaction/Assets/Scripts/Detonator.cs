@@ -13,20 +13,15 @@ public class Detonator : MonoBehaviour
 
     private void Start()
     {
-        gameCamera = Camera.main;
-        Debug.Log(transform.GetChild(1).name);
+
     }
 
 
     private void Update()
     {
-        if (CameraFollow)
-        {
-            gameCamera.transform.LookAt(gameObject.transform);
-        }
 
-        var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-        transform.Rotate(0, x, 0, Space.World);
+
+
 
 
     }

@@ -2,25 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraControls : MonoBehaviour {
+public class CameraControls : MonoBehaviour
+{
 
-    public float speedH = 2.0f;
-    public float speedV = 2.0f;
+    public Transform target;
+    public Transform fallback;
+    public float distance = 15f;
+    public float height = 15f;
 
-    private float yaw = 0.0f;
-    private float pitch = 0.0f;
 
+    // Use this for initialization
+    void Start()
+    {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        yaw += speedH * Input.GetAxis("Mouse X");
-        pitch -= speedV * Input.GetAxis("Mouse Y");
+    }
 
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
-	}
+    private void Awake()
+    {
+        Debug.Assert(fallback);
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        if (!target)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(fallback.position.x, fallback.position.y, fallback.position.z), 15f * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, fallback.rotation, 60f * Time.deltaTime);
+            return;
+        }
+        transform.position = new Vector3(target.position.x, target.position.y + height, target.position.z - distance);
+        transform.LookAt(target);
+
+    }
 }
