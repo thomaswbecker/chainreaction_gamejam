@@ -29,6 +29,11 @@ public class MenuNavigation : MonoBehaviour {
         SceneManager.LoadScene("Credits");
     }
 
+    public static void Instructions()
+    {
+        SceneManager.LoadScene("Instructions");
+    }
+
     public void SwitchToMainMenu()
     {
         MainMenu();
@@ -42,6 +47,11 @@ public class MenuNavigation : MonoBehaviour {
     public void SwitchToCredits()
     {
         Credits();
+    }
+
+    public void SwitchToInstructions()
+    {
+        Instructions();
     }
 
     public void QuitGame()
