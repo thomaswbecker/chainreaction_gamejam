@@ -30,14 +30,8 @@ public class HudDisplayScript : MonoBehaviour {
         }
         detonatorCountText.text = detonatorCount.ToString();
 
-        if(detonatorCount == 0)
-        {
-
-        }
-
         GameObject[] enemies;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        int enemiesAlive = 0;
-        enemyCountText.text = enemiesAlive.ToString();
+        enemyCountText.text = enemies.Length.ToString();
     }
 }

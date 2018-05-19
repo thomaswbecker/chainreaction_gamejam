@@ -8,6 +8,18 @@ public class PauseScript : MonoBehaviour {
 
     private bool paused = false;
 
+    private bool levelDone = false;
+
+    private float endOfGameTimerStart = 0f;
+
+    private static float explosionWait = 3f;
+
+    private int previousBarrelsLeft = 0;
+
+    private bool endGameStarted = false;
+
+    private bool levelOver = false;
+
     public GameObject pauseMenu;
 
     public Button restartLevelButton;
@@ -15,6 +27,10 @@ public class PauseScript : MonoBehaviour {
     public Button mainMenuButton;
 
     public Button levelSelectButton;
+
+    public Button nextLevelButton;
+
+    public Text titleText;
 
 	// Use this for initialization
 	void Start () {
@@ -25,27 +41,91 @@ public class PauseScript : MonoBehaviour {
         mainMenuButton.onClick.AddListener(MainMenu);
 
         levelSelectButton.onClick.AddListener(LevelSelect);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            paused = !paused;
 
-            if(paused)
+        nextLevelButton.onClick.AddListener(NextLevel);
+
+        nextLevelButton.gameObject.SetActive(false);
+	}
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (!levelOver)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Pause();
-            } else
+
+                paused = !paused;
+
+                if (paused)
+                {
+                    Pause();
+                }
+                else
+                {
+                    Unpause();
+                }
+            }
+
+            CheckEndGame();
+        }
+    }
+
+    private void CheckEndGame()
+    {
+        GameObject[] barrelsRemaining;
+        barrelsRemaining = GameObject.FindGameObjectsWithTag("Barrel");
+        int barrelCount = barrelsRemaining.Length;
+        int detonatorCount = 0;
+        foreach (GameObject barrel in barrelsRemaining)
+        {
+            if (barrel.GetComponent(typeof(Detonator)) != null)
             {
-                Unpause();
+                detonatorCount++;
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        GameObject[] enemies;
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        int enemiesAlive = enemies.Length;
+
+        if(enemiesAlive == 0 || detonatorCount == 0)
         {
-            RestartLevel();
+            if(!endGameStarted || barrelCount != previousBarrelsLeft)
+            {
+                previousBarrelsLeft = barrelCount;
+                endOfGameTimerStart = Time.timeSinceLevelLoad;
+
+                endGameStarted = true;
+            }
+
+            if(endOfGameTimerStart + explosionWait < Time.timeSinceLevelLoad)
+            {
+                if(enemiesAlive > 0)
+                {
+                    levelFailure();
+                } else
+                {
+                    levelSuccess();
+                }
+            }
+
         }
+    }
+
+    private void levelSuccess()
+    {
+        nextLevelButton.gameObject.SetActive(true);
+        Pause();
+        titleText.text = "Level Passed";
+        levelOver = true;
+    }
+
+    private void levelFailure()
+    {
+        Pause();
+        titleText.text = "Level Failed";
+        levelOver = true;
     }
 
     private void Pause()
@@ -69,6 +149,12 @@ public class PauseScript : MonoBehaviour {
     {
         Unpause();
         MenuNavigation.LevelSelect();
+    }
+
+    public void NextLevel()
+    {
+        Unpause();
+        MenuNavigation.LoadNextLevel();
     }
 
     public void MainMenu()
