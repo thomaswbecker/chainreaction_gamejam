@@ -38,6 +38,10 @@ public class PauseScript : MonoBehaviour {
 
     public AudioSource audioSource;
 
+    public RawImage portraitFrame;
+
+    public RawImage portrait;
+
     // Use this for initialization
     void Start () {
         pauseMenu.SetActive(false);
@@ -51,6 +55,8 @@ public class PauseScript : MonoBehaviour {
         nextLevelButton.onClick.AddListener(NextLevel);
 
         nextLevelButton.gameObject.SetActive(false);
+
+        portraitFrame.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -125,6 +131,7 @@ public class PauseScript : MonoBehaviour {
         nextLevelButton.gameObject.SetActive(true);
         Pause();
         titleText.text = "Level Passed";
+        portraitFrame.gameObject.SetActive(true);
         levelOver = true;
     }
 
