@@ -32,8 +32,14 @@ public class PauseScript : MonoBehaviour {
 
     public Text titleText;
 
-	// Use this for initialization
-	void Start () {
+    public AudioClip failAudio;
+
+    public AudioClip successAudio;
+
+    public AudioSource audioSource;
+
+    // Use this for initialization
+    void Start () {
         pauseMenu.SetActive(false);
 
         restartLevelButton.onClick.AddListener(RestartLevel);
@@ -45,7 +51,7 @@ public class PauseScript : MonoBehaviour {
         nextLevelButton.onClick.AddListener(NextLevel);
 
         nextLevelButton.gameObject.SetActive(false);
-	}
+    }
 
     // Update is called once per frame
     void Update()
@@ -115,6 +121,7 @@ public class PauseScript : MonoBehaviour {
 
     private void levelSuccess()
     {
+        audioSource.PlayOneShot(successAudio);
         nextLevelButton.gameObject.SetActive(true);
         Pause();
         titleText.text = "Level Passed";
@@ -123,6 +130,7 @@ public class PauseScript : MonoBehaviour {
 
     private void levelFailure()
     {
+        audioSource.PlayOneShot(failAudio);
         Pause();
         titleText.text = "Level Failed";
         levelOver = true;
