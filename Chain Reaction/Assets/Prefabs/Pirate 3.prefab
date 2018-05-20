@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 23646248084925338}
   - component: {fileID: 64009745861586252}
   - component: {fileID: 114946025691552708}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pirate 3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -38,9 +38,9 @@ GameObject:
   - component: {fileID: 23325877712731514}
   - component: {fileID: 64061036270491492}
   - component: {fileID: 114102558209274838}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pirate 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
