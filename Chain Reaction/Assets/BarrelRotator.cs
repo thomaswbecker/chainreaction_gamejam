@@ -13,5 +13,9 @@ public class BarrelRotator : MonoBehaviour {
 	void Update () {
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
         transform.Rotate(0, x, 0, Space.World);
+        if (Input.GetKey(KeyCode.Space))
+        {
+            GetComponent<IExplodeable>().Explode(Vector3.zero, additionalDelay: GameSettings.Instance.BarrelClickDelay);
+        }
     }
 }
