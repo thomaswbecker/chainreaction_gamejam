@@ -30,7 +30,7 @@ public class Detonator : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GetComponent<Rigidbody>().AddForce(-transform.right * 100, ForceMode.Acceleration);
+            
             GetComponent<IExplodeable>().Explode(Vector3.zero, additionalDelay: GameSettings.Instance.BarrelClickDelay);
 
         }
