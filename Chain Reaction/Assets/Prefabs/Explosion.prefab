@@ -18552,7 +18552,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.8
+      scalar: 0.7
       minScalar: 0.2
       maxCurve:
         serializedVersion: 2
@@ -18685,8 +18685,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 40
-      minScalar: 20
+      scalar: 20
+      minScalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19660,7 +19660,7 @@ ParticleSystem:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 0}
         key1: {r: 1, g: 0.9529412, b: 0.8666667, a: 1}
-        key2: {r: 0.6627451, g: 0.6039216, b: 0.5176471, a: 0}
+        key2: {r: 0.6627451, g: 0.6039216, b: 0.5176471, a: 0.31312996}
         key3: {r: 1, g: 1, b: 1, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -19676,7 +19676,7 @@ ParticleSystem:
         ctime7: 0
         atime0: 193
         atime1: 8288
-        atime2: 65535
+        atime2: 23901
         atime3: 65535
         atime4: 0
         atime5: 0
@@ -19684,7 +19684,7 @@ ParticleSystem:
         atime7: 0
         m_Mode: 0
         m_NumColorKeys: 4
-        m_NumAlphaKeys: 3
+        m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -19715,7 +19715,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   UVModule:
-    enabled: 0
+    enabled: 1
     mode: 0
     frameOverTime:
       serializedVersion: 2
@@ -45745,7 +45745,7 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 26ea534dcd83fe14c9173a52e151cce8, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
