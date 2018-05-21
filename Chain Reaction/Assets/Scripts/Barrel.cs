@@ -113,7 +113,7 @@ public class Barrel : MonoBehaviour, IExplodeable
         }
         if (ExplosionPrefab != null)
         {
-            GameObject.Instantiate(ExplosionPrefab.gameObject, gameObject.transform.position, Quaternion.identity);
+            GameObject.Instantiate(ExplosionPrefab.gameObject, gameObject.transform.position, LevelSingleton.Instance.GroundRotator.transform.rotation, LevelSingleton.Instance.GroundRotator.transform);
         }
 
         Destroy(this.gameObject);
