@@ -6,7 +6,7 @@ public class BarrelExplosion : MonoBehaviour {
     public AudioClip[] barrelExplosionClips;
 
     private AudioSource audioSource;
-
+    private List<ParticleSystem> particles = new List<ParticleSystem>();
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -15,10 +15,15 @@ public class BarrelExplosion : MonoBehaviour {
 
     void Update()
     {
-        if (!GetComponent<ParticleSystem>().IsAlive())
-        {
+        var localps = GetComponent<ParticleSystem>();
+        if (localps)
+            particles.Add(localps);
+        else
+            GetComponentsInChildren(particles);
+
+        if (particles.TrueForAll(ps => !ps.IsAlive()))
             Destroy(this.gameObject);
-        }
+        particles.Clear();
     }
 
     private void playExplosionSound()
