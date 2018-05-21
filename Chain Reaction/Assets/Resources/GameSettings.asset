@@ -54,3 +54,5 @@ MonoBehaviour:
     type: 2}
   ExplosionCountdownPrefab: {fileID: 1185720649016192, guid: 8b689e112b2978e438e406b192823094,
     type: 2}
+  PirateDisappearanceDelay: 4
+  PirateDisappearanceEffectPrefab: {fileID: 0}
