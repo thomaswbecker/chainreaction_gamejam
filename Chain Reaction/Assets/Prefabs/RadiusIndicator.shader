@@ -7,8 +7,8 @@
 	Properties
 	{
 		_Color("Color (RGBA)", Color) = (0, 0, 0, 1) // add _Color property
-		_Radius("Radius", Range(0.2,0.8)) = 0.8
-		_Thickness("Thickness", Float) = 1
+		//_Radius("Radius", Range(0.2,0.8)) = 0.8
+		//_Thickness("Thickness", Float) = 1
 	}
 	SubShader
 	{
