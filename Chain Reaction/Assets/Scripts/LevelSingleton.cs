@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System;
+using UnityEngine.Events;
 // This is a monobehaviour to persist state across hot reloads
 public class LevelSingleton : MonoBehaviour {
     public Transform GroundRotator;
     public Camera GameCamera;
+
+    [NonSerialized]
+    public UnityEvent OnDetonationTriggered = new UnityEvent();
+
     private void Awake()
     {
         GetRootObjects();
@@ -26,6 +31,10 @@ public class LevelSingleton : MonoBehaviour {
         }
     }
 
+    private void OnDestroy()
+    {
+        s_instance = null;
+    }
 
     static List<GameObject> rootGameObjects = new List<GameObject>(); // reusable buffer between frames
     private static void GetRootObjects()

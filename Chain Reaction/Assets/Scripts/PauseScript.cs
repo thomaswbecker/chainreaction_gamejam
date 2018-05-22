@@ -42,6 +42,13 @@ public class PauseScript : MonoBehaviour {
 
     public RawImage portrait;
 
+    public RawImage sparkleFrame;
+
+    public Texture2D sadFace;
+
+    public Texture2D happyFace;
+
+
     // Use this for initialization
     void Start () {
         pauseMenu.SetActive(false);
@@ -82,6 +89,8 @@ public class PauseScript : MonoBehaviour {
             CheckEndGame();
         }
     }
+    float endTime;
+    float sparkleVisibility = 0f;
 
     private void CheckEndGame()
     {
@@ -133,6 +142,8 @@ public class PauseScript : MonoBehaviour {
         titleText.text = "Level Passed";
         portraitFrame.gameObject.SetActive(true);
         levelOver = true;
+        portrait.texture = happyFace;
+        //sparkleFrame.gameObject.SetActive(true);
     }
 
     private void levelFailure()
@@ -141,6 +152,9 @@ public class PauseScript : MonoBehaviour {
         Pause();
         titleText.text = "Level Failed";
         levelOver = true;
+        portraitFrame.gameObject.SetActive(true);
+        portrait.texture = sadFace;
+        sparkleFrame.gameObject.SetActive(false);
     }
 
     private void Pause()

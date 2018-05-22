@@ -880,6 +880,9 @@ MonoBehaviour:
   barrelCountText: {fileID: 1487358144}
   enemyCountText: {fileID: 773913515}
   detonatorCountText: {fileID: 1100656048}
+  portraitFrame: {fileID: 2106776647}
+  portrait: {fileID: 2800000, guid: 5ab15fb4fbe67084ab3318e9f8f01482, type: 3}
+  detonationPortrait: {fileID: 2800000, guid: 2e0a48b279e162f498d9218c00d674bb, type: 3}
 --- !u!114 &1103314129
 MonoBehaviour:
   m_ObjectHideFlags: 0
