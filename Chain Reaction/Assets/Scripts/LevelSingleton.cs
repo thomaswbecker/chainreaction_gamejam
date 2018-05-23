@@ -4,13 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using UnityEngine.Events;
+
+public class Vector3Event : UnityEvent<Vector3>
+{
+
+}
 // This is a monobehaviour to persist state across hot reloads
 public class LevelSingleton : MonoBehaviour {
     public Transform GroundRotator;
     public Camera GameCamera;
 
     [NonSerialized]
-    public UnityEvent OnDetonationTriggered = new UnityEvent();
+    public UnityEvent OnDetonatorActivated = new UnityEvent();
+    [NonSerialized]
+    public UnityEvent<Vector3> OnBarrelExplosion = new Vector3Event();
 
     private void Awake()
     {
@@ -45,13 +52,6 @@ public class LevelSingleton : MonoBehaviour {
 
     private static Camera FindGameCamera()
     {
-        foreach (var go in rootGameObjects)
-        {
-            var camera = go.GetComponent<Camera>();
-            if (camera)
-                return camera.GetComponent<Camera>();
-        }
-        Debug.LogWarning("Unable to find a GameplayCamera");
         return Camera.main;
     }
     private static Transform FindGroundTransform()

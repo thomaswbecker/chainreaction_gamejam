@@ -30,7 +30,7 @@ public class Detonator : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            LevelSingleton.Instance.OnDetonationTriggered.Invoke();
+            LevelSingleton.Instance.OnDetonatorActivated.Invoke();
             GetComponent<IExplodeable>().Explode(Vector3.zero, additionalDelay: GameSettings.Instance.BarrelClickDelay);
 
         }
