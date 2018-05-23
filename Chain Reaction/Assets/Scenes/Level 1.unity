@@ -161,6 +161,16 @@ Prefab:
       propertyPath: m_Name
       value: CameraPositioner
       objectReference: {fileID: 0}
+    - target: {fileID: 114381896611150846, guid: 7d6bec242a8f9844d88921d368da97ed,
+        type: 2}
+      propertyPath: explosionShakeTime
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114381896611150846, guid: 7d6bec242a8f9844d88921d368da97ed,
+        type: 2}
+      propertyPath: explosionShakeMagnitude
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d6bec242a8f9844d88921d368da97ed, type: 2}
   m_IsPrefabParent: 0

@@ -135,8 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f7ad49e9fd8604a81a20585b7ec3c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionShakeTime: 1.5
-  explosionShakeMagnitude: 5
+  explosionShakeTime: 0.3
+  explosionShakeMagnitude: 1.5
   explosionShakeCurve:
     serializedVersion: 2
     m_Curve:
