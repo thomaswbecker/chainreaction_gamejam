@@ -86,6 +86,7 @@ public class Barrel : MonoBehaviour, IExplodeable
         }
 
         yield return new WaitForSeconds(countdownTime);
+        LevelSingleton.Instance.OnBarrelExplosion.Invoke(transform.position);
         int explosionBlockersLayer = 1 << LayerMask.NameToLayer("ExplosionBlockers"); // check only explosion blockers (walls etc.).  We don't want barrels to block other barrels.
         int explodeablesLayer = 1 << LayerMask.NameToLayer("Explodeables");
         var radius = MyExplosionRadius();

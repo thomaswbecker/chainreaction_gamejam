@@ -38,7 +38,7 @@ public class HudDisplayScript : MonoBehaviour {
         if (!initialized)
         {
             initialized = true;
-            LevelSingleton.Instance.OnDetonationTriggered.AddListener(OnDetonationTriggered);
+            LevelSingleton.Instance.OnDetonatorActivated.AddListener(OnDetonationTriggered);
         }
     }
 	// Update is called once per frame
