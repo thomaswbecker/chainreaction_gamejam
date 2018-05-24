@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuNavigation : MonoBehaviour {
 
-    private static int numberOfLevels = 6;
+    private static int numberOfLevels = 7;
 
     private static int currentLevel = 1;
 
