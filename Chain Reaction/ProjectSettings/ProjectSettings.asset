@@ -128,6 +128,7 @@ PlayerSettings:
   - {fileID: 2800000, guid: a017b8d66817d3b488974ffd73184877, type: 3}
   - {fileID: 2800000, guid: 2e0a48b279e162f498d9218c00d674bb, type: 3}
   - {fileID: 2100000, guid: cdde58b33601fd74e86f78abdd246c80, type: 2}
+  - {fileID: 1687936721813534, guid: 7d6bec242a8f9844d88921d368da97ed, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -172,7 +173,7 @@ PlayerSettings:
   ForceSDCardPermission: 0
   CreateWallpaper: 0
   APKExpansionFiles: 0
-  keepLoadedShadersAlive: 0
+  keepLoadedShadersAlive: 1
   StripUnusedMeshComponents: 1
   VertexChannelCompressionMask: 214
   iPhoneSdkVersion: 988

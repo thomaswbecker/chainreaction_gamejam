@@ -4,16 +4,17 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 class Pirate : MonoBehaviour, IExplodeable
 {
+    public LightTargeter myLight;
     [SerializeField] Transform ObjectCenter;
     bool isAlive = true;
     void Start()
     {
-
     }
     public void Explode(Vector3 force, float additionalDelay)
     {
         if (isAlive)
         {
+            myLight.SetTarget(null);
             float strength = 10f;
             GetComponent<Rigidbody>().AddExplosionForce(strength, transform.position - force.normalized, 1000f, 1f, ForceMode.Impulse);
             StartCoroutine(DoDisappearingAct());

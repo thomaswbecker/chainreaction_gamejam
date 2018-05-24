@@ -85,6 +85,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b987c659a1edd6f488980e676d73d2a2, type: 2}
   m_StaticBatchInfo:
@@ -138,6 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e447f07375b8fff41b0000ba4d1bd4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Thickness: 1
+  Thickness: 2
   MeshRendererInstance: {fileID: 23161121552840806}
   TrackedDetonator: {fileID: 0}

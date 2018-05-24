@@ -9,58 +9,60 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1681237962729748}
+  m_RootGameObject: {fileID: 1053513058054146}
   m_IsPrefabParent: 1
---- !u!1 &1681237962729748
+--- !u!1 &1053513058054146
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4454083974013690}
-  - component: {fileID: 108773094887212200}
-  - component: {fileID: 114960857475699364}
+  - component: {fileID: 4763979755814836}
+  - component: {fileID: 108607485040177010}
+  - component: {fileID: 114405762409490282}
+  - component: {fileID: 114824782787379414}
+  - component: {fileID: 114506457985609598}
   m_Layer: 0
-  m_Name: spot
+  m_Name: Pirate Spotlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4454083974013690
+--- !u!4 &4763979755814836
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1681237962729748}
-  m_LocalRotation: {x: 0.3987885, y: 0, z: 0, w: 0.9170429}
-  m_LocalPosition: {x: -0.5942156, y: 5.8621025, z: 0.74896145}
+  m_GameObject: {fileID: 1053513058054146}
+  m_LocalRotation: {x: 0.24486952, y: -0.6428352, z: 0.23361717, w: 0.68718624}
+  m_LocalPosition: {x: 5.63, y: 5.44, z: -0.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!108 &108773094887212200
+  m_LocalEulerAnglesHint: {x: 39.561, y: -86.013, z: 0.46500003}
+--- !u!108 &108607485040177010
 Light:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1681237962729748}
+  m_GameObject: {fileID: 1053513058054146}
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3
-  m_Range: 20.461567
-  m_SpotAngle: 70.94337
+  m_Color: {r: 1, g: 0.9009434, b: 0.9009434, a: 1}
+  m_Intensity: 5
+  m_Range: 20
+  m_SpotAngle: 21.1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
+    m_Bias: 0
     m_NormalBias: 0.4
     m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
@@ -77,22 +79,23 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114960857475699364
+--- !u!114 &114405762409490282
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1681237962729748}
+  m_GameObject: {fileID: 1053513058054146}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0109504c2f6a31b4498a8fd6a490584a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShadowmapMode: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 0}
   m_CurrentCamera: {fileID: 0}
   m_Size: {x: 10, y: 10, z: 20}
-  m_SpotNear: 0.05
+  m_SpotNear: 0.08
   m_SpotFar: 1
   m_CullingMask:
     serializedVersion: 2
@@ -100,16 +103,16 @@ MonoBehaviour:
   m_ColorFilterMask:
     serializedVersion: 2
     m_Bits: 0
-  m_Brightness: 2.75
-  m_BrightnessColored: 5
-  m_Extinction: 0.44
+  m_Brightness: 0.5
+  m_BrightnessColored: 1
+  m_Extinction: 0.5
   m_MinDistFromCamera: 0
   m_ShadowmapRes: 1024
   m_DepthShader: {fileID: 4800000, guid: 7e188a1e08ecfae4785bed08b1013219, type: 3}
   m_ColorFilterShader: {fileID: 4800000, guid: 78da0b5fc3a6e8a469d047d71187e7ef, type: 3}
   m_Colored: 0
   m_ColorBalance: 1
-  m_EpipolarLines: 512
+  m_EpipolarLines: 256
   m_EpipolarSamples: 512
   m_CoordShader: {fileID: 4800000, guid: 170533b360a07f945b98b5d9d11bff19, type: 3}
   m_DepthBreaksShader: {fileID: 4800000, guid: 8675ad07e6cda494d977506a7a2a8fbd, type: 3}
@@ -124,29 +127,64 @@ MonoBehaviour:
   m_InterpolationStep: 32
   m_ShowSamples: 0
   m_ShowInterpolatedSamples: 0
-  m_ShowSamplesBackgroundFade: 0.732
+  m_ShowSamplesBackgroundFade: 0.8
   m_AttenuationCurveOn: 0
   m_AttenuationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      time: 0.0011253357
+      value: 0
+      inSlope: -0.1974376
+      outSlope: -0.1974376
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.77186817
+    - serializedVersion: 3
+      time: 0.0868004
+      value: 0.9756929
+      inSlope: -4.319533
+      outSlope: -4.319533
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.018272744
     - serializedVersion: 3
       time: 1
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114506457985609598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1053513058054146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cf876191d435a548a99fccc454cc5c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  lerpTime: 0.4
+--- !u!114 &114824782787379414
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1053513058054146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f07005624ca9dec4887068c469178939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetColour: {r: 1, g: 0.740566, b: 0.7523585, a: 0}
+  frequency: 0.65

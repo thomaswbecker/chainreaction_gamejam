@@ -16,6 +16,7 @@ public class GameSettings : ScriptableObject {
     public GameObject ExplosionCountdownPrefab;
     public float PirateDisappearanceDelay = 3f;
     public GameObject PirateDisappearanceEffectPrefab;
+    public float LightTargeterFadeTime = 0.4f;
     public static GameSettings Instance
     {
         get { return SingletonScriptableObject<GameSettings>.Instance; }

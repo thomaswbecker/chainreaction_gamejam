@@ -17,29 +17,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1.8852901
-      outSlope: 1.8852901
+      inSlope: 2.346046
+      outSlope: 2.346046
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.05822598
+      outWeight: 0.04466975
     - serializedVersion: 3
-      time: 0.8152941
-      value: 0.97446877
-      inSlope: 0.25013044
-      outSlope: 0.25013044
+      time: 0.70508695
+      value: 0.9675763
+      inSlope: 0.3535663
+      outSlope: 0.3535663
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.050468694
+      inWeight: 0.07629333
       outWeight: 0.28137946
     - serializedVersion: 3
       time: 1
-      value: 1
-      inSlope: 0.04547057
-      outSlope: 0.04547057
+      value: 0.9982796
+      inSlope: 0.05187384
+      outSlope: 0.05187384
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.2984106
+      inWeight: 0.21741009
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -56,3 +56,4 @@ MonoBehaviour:
     type: 2}
   PirateDisappearanceDelay: 4
   PirateDisappearanceEffectPrefab: {fileID: 0}
+  LightTargeterFadeTime: 0.8
